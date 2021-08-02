@@ -1,9 +1,14 @@
-/* font-family: 'Revalia', cursive; */
+/* font-family: 'Chakra Petch', sans-serif; */
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 10px;
 }
 
 .clearfix::after {
@@ -21,7 +26,7 @@
     background-color: lightgray;
     border: 2px solid black;
     border-radius: 10px;
-    box-shadow: 0 0 0 2px white, 0 0 0 5px black;
+    box-shadow: 0 0 0 2px lightgray, 0 0 0 5px black;
 }
 
 .screen {
@@ -30,7 +35,6 @@
     width: 90%;
     height: 20%;
     margin: 20px auto;
-    font-family: 'Revalia', sans-serif;
     border-radius: 6px;
     background-color: black;
     opacity: 0.8;
@@ -38,13 +42,31 @@
 }
 
 .screen .result {
-    color: yellowgreen;
     flex-grow: 4;
+    /*container*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: yellowgreen;
+    font-size: 3.8rem;
 }
 
 .screen .info {
-    color: yellowgreen;
     flex-grow: 1;
+    /*container*/
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: yellowgreen;
+}
+
+.screen .info span {
+    margin: 0 5px;
+    font-size: 1.5rem;
+}
+
+.screen .info span i {
+    margin: 0 5px;
 }
 
 .panel {
