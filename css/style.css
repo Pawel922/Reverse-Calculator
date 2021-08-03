@@ -26,7 +26,7 @@ html {
     background-color: lightgray;
     border: 2px solid black;
     border-radius: 10px;
-    box-shadow: 0 0 0 2px lightgray, 0 0 0 5px black;
+    box-shadow: 2px 2px 0 black;
 }
 
 .screen {
@@ -36,8 +36,8 @@ html {
     height: 20%;
     margin: 20px auto;
     border-radius: 6px;
-    background-color: black;
-    opacity: 0.8;
+    background-color: rgb(32, 32, 32);
+    border: 2px solid black;
     overflow: hidden;
 }
 
@@ -47,7 +47,7 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: yellowgreen;
+    color: rgb(123, 255, 0);
     font-size: 3.8rem;
 }
 
@@ -57,7 +57,7 @@ html {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: yellowgreen;
+    color: rgb(123, 255, 0);
 }
 
 .screen .info span {
@@ -73,51 +73,39 @@ html {
     margin: 0 auto;
     width: 90%;
     height: calc(80% - 60px);
-    background-color: khaki;
 }
 
 .panel .buttons1 {
     display: flex;
     justify-content: space-between;
     height: 15%;
-    background-color: lightblue;
 }
 
 .panel .buttons1 div {
     flex-basis: 40%;
-    margin: 5px;
-    background-color: blueviolet;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    margin: 5px 5px 5px 0;
 }
 
 .panel .buttons1 span {
     flex-basis: 40%;
-    margin: 5px;
-    background-color: brown;
+    margin: 5px 0 5px 5px;
+    background-color: rgb(102, 57, 0);
+    border-radius: 5px;
+    border: 2px solid black;
 }
-
 
 
 .panel .buttons2 {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     float: left;
     height: 85%;
     width: 75%;
-    background-color: lightpink;
 }
 
 .panel .buttons2 div {
     flex-basis: calc(33% - 10px);
-    margin: 5px;
-    border: 2px solid black;
-    /*container*/
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    margin: 5px 10px 5px 0;
 }
 
 .panel .buttons3 {
@@ -132,14 +120,30 @@ html {
     width: 100%;
     margin: 5px;
     flex-grow: 1;
-    /*container*/
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid black;
-
 }
 
 .panel .buttons3 div:last-child {
     flex-grow: 2;
+}
+
+.buttons1 div,
+.buttons2 div,
+.buttons3 div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(255, 255, 204);
+    font-size: 1.7rem;
+    font-weight: bold;
+    border-radius: 5px;
+    box-shadow: 2px 2px 0 black;
+    border: 2px solid black;
+    transition: 0.3s;
+}
+
+.buttons1 div:hover,
+.buttons2 div:hover,
+.buttons3 div:hover {
+    background-color: rgb(255, 229, 204);
+    box-shadow: none;
 }
