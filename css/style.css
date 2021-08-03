@@ -86,12 +86,8 @@ html {
     margin: 5px 5px 5px 0;
 }
 
-.panel .buttons1 span {
-    flex-basis: 40%;
+.panel .buttons1 div+div {
     margin: 5px 0 5px 5px;
-    background-color: rgb(102, 57, 0);
-    border-radius: 5px;
-    border: 2px solid black;
 }
 
 
@@ -139,6 +135,7 @@ html {
     box-shadow: 2px 2px 0 black;
     border: 2px solid black;
     transition: 0.3s;
+    cursor: pointer;
 }
 
 .buttons1 div:hover,
