@@ -12,8 +12,21 @@ class Screen {
 
     //set methods
 
-    setDisplayContent(content) {
-        this.displayContent = content;
+    setDisplayContent(content, param, answer = "?") {
+        const regex1 = /^[0-9]+/;
+        const regex2 = /[0-9]+=/;
+        const regex3 = /=[0-9]+/;
+        switch (param) {
+            case ("first"):
+                this.displayContent = content.replace(regex1, answer);
+                break;
+            case ("second"):
+                this.displayContent = content.replace(regex2, answer + "=");
+                break;
+            case ("third"):
+                this.displayContent = content.replace(regex3, "=" + answer);
+                break;
+        }
     }
 
     setWinsValue(num) {
