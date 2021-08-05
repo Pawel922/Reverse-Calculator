@@ -1,6 +1,6 @@
 class Equation {
     constructor() {
-        //variable which represents the numbers range
+        //variable which represents the numbers range 
         this.range = 25;
         //variable which represents the largest amount of characters which equation can have
         this.maxNumOfCharacters = 12;
