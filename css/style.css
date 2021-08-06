@@ -144,3 +144,8 @@ html {
     background-color: rgb(255, 229, 204);
     box-shadow: none;
 }
+
+.buttons3 div.active {
+    background-color: rgb(178, 255, 102);
+    box-shadow: none;
+}
