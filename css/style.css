@@ -60,12 +60,12 @@ html {
     color: rgb(123, 255, 0);
 }
 
-.screen .info span {
+.screen .info div {
     margin: 0 5px;
     font-size: 1.5rem;
 }
 
-.screen .info span i {
+.screen .info div i {
     margin: 0 5px;
 }
 
