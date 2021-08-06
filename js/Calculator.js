@@ -8,16 +8,33 @@ class Calculator {
         this.numLoss = document.querySelector(".info div:nth-child(2) span")
         this.numTotal = document.querySelector(".info div:nth-child(3) span")
 
-        this.render();
+        this.userAnswer = "";
+
+        this.switchOnNumKeys();
+        this.refresh();
     }
 
-
+    switchOnNumKeys() {
+        this.numButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                this.userAnswer += button.textContent;
+                this.render();
+            })
+        })
+    }
 
     render() {
+        this.screenManager.setDisplayContent(this.equation.getEquationToGuess(), "first", this.userAnswer);
+        this.screen.textContent = this.screenManager.getDisplayContent();
+    }
+
+    refresh() {
         this.screenManager.setDisplayContent(this.equation.getEquationToGuess(), "first");
         this.screen.textContent = this.screenManager.getDisplayContent();
         this.numWins.textContent = this.screenManager.getWinsValue();
         this.numLoss.textContent = this.screenManager.getLossesValue();
         this.numTotal.textContent = this.screenManager.getTrialsValue();
     }
+
+
 }
