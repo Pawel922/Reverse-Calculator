@@ -39,6 +39,7 @@ class Calculator {
                 })
                 button.classList.add('active');
                 this.placement = button.getAttribute('data-plc');
+                this.equation = new Equation();
                 this.userAnswer = "";
                 this.refresh();
             })
