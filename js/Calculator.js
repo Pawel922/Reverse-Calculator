@@ -3,6 +3,7 @@ class Calculator {
         this.equation = new Equation();
         this.screenManager = new ScreenManager();
         this.screen = document.querySelector(".result span");
+        document.querySelector(".buttons1 div:last-child").addEventListener('click', this.clear.bind(this));
         this.numButtons = document.querySelectorAll(".buttons2 div.num");
         this.placementButtons = document.querySelectorAll(".buttons3 div.placement");
         document.querySelector(".buttons3 div:last-child").addEventListener('click', this.verify.bind(this));
@@ -42,6 +43,16 @@ class Calculator {
                 this.refresh();
             })
         })
+    }
+
+    clear() {
+        if (this.userAnswer != "") {
+            let tempArray = [...this.userAnswer];
+            tempArray.pop();
+            this.userAnswer = tempArray.length == 0 ? "?" : tempArray.toString().replaceAll(",", "");
+            this.render();
+        }
+
     }
 
     verify() {
