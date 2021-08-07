@@ -5,7 +5,7 @@ class Verification {
             return false;
         } else {
             //delete redundant '0' digits
-            let tempArray = userAnswer.split(/[+|-|*|\/|=]/).map((elem) => {
+            let tempArray = userAnswer.split(/\+|-|\*|\/|=/).map((elem) => {
                 return elem.replace(/^0+/, "") === "" ? "0" : elem.replace(/^0+/, "");
             })
 
