@@ -26,6 +26,8 @@ class ScreenManager {
             case ("third"):
                 this.displayContent = content.replace(regex3, "=" + answer);
                 break;
+            default:
+                this.displayContent = content;
         }
     }
 
