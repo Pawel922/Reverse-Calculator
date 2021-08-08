@@ -20,8 +20,8 @@ class Equation {
 
         while (!equationHasProperLength) {
             mathFun = this.mathFunctions[Math.floor(Math.random() * this.mathFunctions.length)];
-            firstNum = Math.floor(Math.random() * this.range);
-            secondNum = Math.floor(Math.random() * this.range);
+            firstNum = Math.floor(Math.random() * this.range + 1);
+            secondNum = Math.floor(Math.random() * this.range + 1);
 
             if (mathFun === '+') {
                 result = `${firstNum}+${secondNum}=${firstNum+secondNum}`;
