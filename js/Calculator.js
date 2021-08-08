@@ -5,14 +5,16 @@ class Calculator {
         this.screen = document.querySelector(".result span");
         document.querySelector(".buttons1 div:last-child").addEventListener('click', this.clear.bind(this));
         this.numButtons = document.querySelectorAll(".buttons2 div.num");
+        document.querySelector(".buttons2 div:last-child").addEventListener('click', this.refresh.bind(this));
         this.placementButtons = document.querySelectorAll(".buttons3 div.placement");
         document.querySelector(".buttons3 div:last-child").addEventListener('click', this.verify.bind(this));
-        this.numWins = document.querySelector(".info div:nth-child(1) span")
-        this.numLoss = document.querySelector(".info div:nth-child(2) span")
-        this.numTotal = document.querySelector(".info div:nth-child(3) span")
+        this.numWins = document.querySelector(".info div:nth-child(1) span");
+        this.numLoss = document.querySelector(".info div:nth-child(2) span");
+        this.numTotal = document.querySelector(".info div:nth-child(3) span");
 
         this.userAnswer = "";
         this.placement = "first";
+        this.isItNewEquation = true;
 
         this.switchOnNumKeys();
         this.switchOnPlacementKeys();
@@ -25,6 +27,7 @@ class Calculator {
         this.numButtons.forEach(button => {
             button.addEventListener('click', () => {
                 this.userAnswer += button.textContent;
+                this.userAnswer = this.userAnswer.replace("?", "");
                 this.render();
             })
         })
@@ -47,25 +50,27 @@ class Calculator {
     }
 
     clear() {
-        if (this.userAnswer != "") {
+        if ((this.userAnswer != "") && this.screenManager.getDisplayContent().includes("=")) {
             let tempArray = [...this.userAnswer];
             tempArray.pop();
             this.userAnswer = tempArray.length == 0 ? "?" : tempArray.toString().replaceAll(",", "");
             this.render();
         }
-
     }
 
     verify() {
-        if (Verification.checkAnswer(this.equation.getEquationToGuess(), this.screenManager.getDisplayContent())) {
-            this.screenManager.setWinsValue(this.screenManager.getWinsValue() + 1);
-        } else {
-            this.screenManager.setLossesValue(this.screenManager.getLossesValue() + 1);
+        if (this.isItNewEquation) {
+            if (Verification.checkAnswer(this.equation.getEquationToGuess(), this.screenManager.getDisplayContent())) {
+                this.screenManager.setWinsValue(this.screenManager.getWinsValue() + 1);
+                this.screenManager.setDisplayContent(Info.displayInfo("pass"));
+            } else {
+                this.screenManager.setLossesValue(this.screenManager.getLossesValue() + 1);
+                this.screenManager.setDisplayContent(Info.displayInfo("fail"));
+            }
+            this.screenManager.setTrialsValue(this.screenManager.getTrialsValue() + 1);
+            this.updateView();
         }
-        this.screenManager.setTrialsValue(this.screenManager.getTrialsValue() + 1);
-        this.equation = new Equation();
-        this.userAnswer = "";
-        this.refresh();
+        this.isItNewEquation = false;
     }
 
 
@@ -75,7 +80,15 @@ class Calculator {
     }
 
     refresh() {
+        this.equation = new Equation();
+        this.isItNewEquation = true;
+        this.userAnswer = "";
         this.screenManager.setDisplayContent(this.equation.getEquationToGuess(), this.placement);
+        this.updateView();
+
+    }
+
+    updateView() {
         this.screen.textContent = this.screenManager.getDisplayContent();
         this.numWins.textContent = this.screenManager.getWinsValue();
         this.numLoss.textContent = this.screenManager.getLossesValue();
