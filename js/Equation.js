@@ -2,8 +2,6 @@ class Equation {
     constructor() {
         //variable which represents the numbers range 
         this.range = 25;
-        //variable which represents the largest amount of characters which equation can have
-        this.maxNumOfCharacters = 12;
         //table which contains mathematical functions
         this.mathFunctions = ['+', '-', '*', '/'];
         //variable which represents equation to guess
@@ -18,28 +16,25 @@ class Equation {
         let secondNum;
         let equationHasProperLength = false;
 
-        while (!equationHasProperLength) {
-            mathFun = this.mathFunctions[Math.floor(Math.random() * this.mathFunctions.length)];
-            firstNum = Math.floor(Math.random() * this.range + 1);
-            secondNum = Math.floor(Math.random() * this.range + 1);
 
-            if (mathFun === '+') {
-                result = `${firstNum}+${secondNum}=${firstNum+secondNum}`;
-            } else if (mathFun === '-') {
-                if (firstNum >= secondNum) {
-                    result = `${firstNum}-${secondNum}=${firstNum-secondNum}`;
-                } else {
-                    result = `${secondNum}-${firstNum}=${secondNum-firstNum}`;
-                }
-            } else if (mathFun === '*') {
-                result = `${firstNum}*${secondNum}=${firstNum*secondNum}`;
+        mathFun = this.mathFunctions[Math.floor(Math.random() * this.mathFunctions.length)];
+        firstNum = Math.floor(Math.random() * this.range + 1);
+        secondNum = Math.floor(Math.random() * this.range + 1);
+
+        if (mathFun === '+') {
+            result = `${firstNum}+${secondNum}=${firstNum+secondNum}`;
+        } else if (mathFun === '-') {
+            if (firstNum >= secondNum) {
+                result = `${firstNum}-${secondNum}=${firstNum-secondNum}`;
             } else {
-                result = `${firstNum * secondNum}/${firstNum}=${secondNum}`;
+                result = `${secondNum}-${firstNum}=${secondNum-firstNum}`;
             }
-
-            equationHasProperLength = result.length <= this.maxNumOfCharacters ? true : false;
+        } else if (mathFun === '*') {
+            result = `${firstNum}*${secondNum}=${firstNum*secondNum}`;
+        } else {
+            result = `${firstNum * secondNum}/${firstNum}=${secondNum}`;
         }
+
         return result;
     }
-
 }

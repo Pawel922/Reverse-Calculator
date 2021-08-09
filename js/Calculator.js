@@ -21,14 +21,14 @@ class Calculator {
         this.refresh();
     }
 
-
-
     switchOnNumKeys() {
         this.numButtons.forEach(button => {
             button.addEventListener('click', () => {
-                this.userAnswer += button.textContent;
-                this.userAnswer = this.userAnswer.replace("?", "");
-                this.render();
+                if (this.screenManager.getDisplayContent().length < this.screenManager.maxNumOfCharacters) {
+                    this.userAnswer += button.textContent;
+                    this.userAnswer = this.userAnswer.replace("?", "");
+                    this.render();
+                }
             })
         })
     }

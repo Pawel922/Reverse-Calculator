@@ -8,6 +8,8 @@ class ScreenManager {
         this.lossesValue = 0;
         //amount of trials
         this.trialsValue = 0;
+        //variable which represents the largest amount of characters which can be displayed
+        this.maxNumOfCharacters = 12;
     }
 
     //set methods
