@@ -88,6 +88,11 @@ class Calculator {
     }
 
     refresh() {
+        //check if answer was typed otherwise change scores
+        if(this.screenManager.getDisplayContent().includes("?")) {
+            this.screenManager.setLossesValue(this.screenManager.getLossesValue() + 1);
+            this.screenManager.setTrialsValue(this.screenManager.getTrialsValue() + 1);
+        }
         this.equation = new Equation();
         this.isItNewEquation = true;
         this.userAnswer = "";
