@@ -5,6 +5,7 @@ class Calculator {
         this.screen = document.querySelector(".result span");
         document.querySelector(".buttons1 div:last-child").addEventListener('click', this.clear.bind(this));
         this.numButtons = document.querySelectorAll(".buttons2 div.num");
+        document.querySelector(".buttons2 div:nth-last-child(3)").addEventListener('click', this.reset.bind(this));
         document.querySelector(".buttons2 div:last-child").addEventListener('click', this.refresh.bind(this));
         this.placementButtons = document.querySelectorAll(".buttons3 div.placement");
         document.querySelector(".buttons3 div:last-child").addEventListener('click', this.verify.bind(this));
@@ -79,13 +80,19 @@ class Calculator {
         this.screen.textContent = this.screenManager.getDisplayContent();
     }
 
+    reset() {
+        this.screenManager.setWinsValue(0);
+        this.screenManager.setLossesValue(0);
+        this.screenManager.setTrialsValue(0);
+        this.updateView();
+    }
+
     refresh() {
         this.equation = new Equation();
         this.isItNewEquation = true;
         this.userAnswer = "";
         this.screenManager.setDisplayContent(this.equation.getEquationToGuess(), this.placement);
         this.updateView();
-
     }
 
     updateView() {
@@ -94,6 +101,4 @@ class Calculator {
         this.numLoss.textContent = this.screenManager.getLossesValue();
         this.numTotal.textContent = this.screenManager.getTrialsValue();
     }
-
-
 }
