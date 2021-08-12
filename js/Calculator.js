@@ -3,6 +3,8 @@ class Calculator {
         this.equation = new Equation();
         this.screenManager = new ScreenManager();
         this.screen = document.querySelector(".result span");
+        document.querySelector(".buttons1 div:first-child").addEventListener('click',this.help.bind(this));
+        document.querySelector(".modal .bottom").addEventListener('click', this.help.bind(this));
         document.querySelector(".buttons1 div:last-child").addEventListener('click', this.clear.bind(this));
         this.numButtons = document.querySelectorAll(".buttons2 div.num");
         document.querySelector(".buttons2 div:nth-last-child(3)").addEventListener('click', this.reset.bind(this));
@@ -48,6 +50,11 @@ class Calculator {
                 this.refresh();
             })
         })
+    }
+
+    help() {
+        document.querySelector(".modal-wrap").classList.toggle('active');
+        document.querySelector(".calculator").classList.toggle('blur');
     }
 
     clear() {
