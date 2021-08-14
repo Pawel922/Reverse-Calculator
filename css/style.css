@@ -204,6 +204,15 @@ html {
 .modal .middle {
     flex-grow: 1;
     font-size: 1.5rem;
-    padding: 8px;
+    padding: 10px 25px 10px 25px;
     text-align: justify;
+}
+
+.modal .middle ul {
+    font-size: 2rem;
+}
+
+.modal .middle ul li {
+    margin-top: 12px;
+    font-size: 1.5rem;
 }
