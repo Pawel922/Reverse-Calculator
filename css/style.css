@@ -151,7 +151,7 @@ html {
 .buttons1 div.ripple:hover,
 .buttons2 div.ripple:hover,
 .buttons3 div.ripple:hover {
-    background: darkgray radial-gradient(circle, transparent 1%, rgb(255, 255, 204) 1%) center/15000%;
+    background: radial-gradient(circle, transparent 1%, rgb(255, 255, 204) 1%) center/15000%;
 
 }
 
