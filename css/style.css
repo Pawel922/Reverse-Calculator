@@ -138,39 +138,40 @@ html {
     border-radius: 5px;
     box-shadow: 2px 2px 0 black;
     border: 2px solid black;
-    transition: 0.3s;
     cursor: pointer;
-}
-
-.buttons1 div:hover,
-.buttons2 div:hover,
-.buttons3 div:hover {
-    box-shadow: none;
 }
 
 .buttons1 div.ripple,
 .buttons2 div.ripple,
 .buttons3 div.ripple {
     background-position: center;
-    transition: background 0.5s;
+    transition: background-size 0.5s;
 }
 
 .buttons1 div.ripple:hover,
 .buttons2 div.ripple:hover,
 .buttons3 div.ripple:hover {
-    background: rgb(255, 229, 204) radial-gradient(circle, transparent 1%, rgb(255, 229, 204) 1%) center/15000%;
+    background: darkgray radial-gradient(circle, transparent 1%, rgb(255, 255, 204) 1%) center/15000%;
+
 }
 
 .buttons1 div.ripple:active,
 .buttons2 div.ripple:active,
 .buttons3 div.ripple:active {
+    box-shadow: none;
     background-color: darkgray;
     background-size: 100%;
-    transition: background 0s;
+    transition: background-size 0s;
+
 }
 
 .buttons3 div.active {
     background-color: rgb(178, 255, 102);
+    box-shadow: none;
+}
+
+.buttons3 div.placement:hover {
+    background-color: darkgray;
     box-shadow: none;
 }
 
