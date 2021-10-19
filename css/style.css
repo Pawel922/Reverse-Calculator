@@ -148,39 +148,10 @@ html {
     box-shadow: none;
 }
 
-/* .buttons1 div.ripple,
-.buttons2 div.ripple,
-.buttons3 div.ripple {
-    background-position: center;
-    transition: background-size 0.5s;
-} */
-
-/* .buttons1 div.ripple:hover,
-.buttons2 div.ripple:hover,
-.buttons3 div.ripple:hover {
-    background: radial-gradient(circle, transparent 1%, rgb(255, 255, 204) 1%) center/15000%;
-
-} */
-
-/* .buttons1 div.ripple:active,
-.buttons2 div.ripple:active,
-.buttons3 div.ripple:active {
-    box-shadow: none;
-    background-color: darkgray;
-    background-size: 100%;
-    transition: background-size 0s;
-
-} */
-
 .buttons3 div.active {
     background-color: rgb(178, 255, 102);
     box-shadow: none;
 }
-
-/* .buttons3 div.placement:hover {
-    background-color: darkgray;
-    box-shadow: none;
-} */
 
 /**************************************************/
 
